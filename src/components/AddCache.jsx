@@ -31,7 +31,7 @@ const AddCache = ({ onSetCache }) => {
             id="key"
             value={key}
             onChange={(e) => setKey(e.target.value)}
-            className="w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200"
+            className="w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 p-1"
           />
         </div>
         <div>
@@ -43,7 +43,7 @@ const AddCache = ({ onSetCache }) => {
             id="value"
             value={value}
             onChange={(e) => setValue(e.target.value)}
-            className="w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200"
+            className="w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 p-1"
           />
         </div>
         <div>
@@ -55,12 +55,12 @@ const AddCache = ({ onSetCache }) => {
             id="expiry"
             value={expiry}
             onChange={(e) => setExpiry(e.target.value)}
-            className="w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200"
+            className="w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 p-1"
           />
         </div>
         <button
           type="submit"
-          className="w-full px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+          className="w-full px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600 mt-2"
         >
           Set Cache
         </button>
