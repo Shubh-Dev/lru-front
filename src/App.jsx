@@ -44,7 +44,7 @@ function App() {
   return (
     <div className="flex  justify-around mt-6">
       <div>
-        <Cache cacheData={cacheData} />
+        <Cache cacheData={cacheData} fetchCacheData={fetchCacheData} />
       </div>
       <div className="border border-gray-600 p-6">
         <AddCache onSetCache={handleSetCache} />

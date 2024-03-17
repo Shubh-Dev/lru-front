@@ -9,7 +9,6 @@ const Cache = ({ cacheData: initialCacheData }) => {
     if (initialCacheData) {
       setLoading(false);
     } else {
-      // Fetch data from the API if initial cache data is not provided
       fetch("https://lru-cache.onrender.com/")
         .then((response) => {
           if (!response.ok) {
@@ -31,13 +30,14 @@ const Cache = ({ cacheData: initialCacheData }) => {
 
   const handleCacheItemClick = (key) => {
     setSelectedCacheKey(key);
+    console.log("selected key", key);
   };
 
   return (
     <div>
       <div className="border border-gray-600 p-6">
-        <h2>Cache</h2>
-        {loading && <p>Loading cache data...</p>}
+        <h2 className="text-2xl">Cache</h2>
+        {loading && <p className="text-xs">Loading cache data...</p>}
         {!loading && (
           <div>
             {Object.keys(initialCacheData || {}).length === 0 ? (
@@ -48,7 +48,7 @@ const Cache = ({ cacheData: initialCacheData }) => {
                   <li
                     key={key}
                     onClick={() => handleCacheItemClick(key)}
-                    className="cursor-pointer text-lg mt-2"
+                    className="cursor-pointer text-lg mt-2 text-blue-300"
                   >
                     Key: {key}, Value: {initialCacheData[key]}
                   </li>
@@ -59,16 +59,8 @@ const Cache = ({ cacheData: initialCacheData }) => {
         )}
       </div>
       <div className="border border-gray-600 p-6 mt-6">
-        <h2>Selected Cache Item</h2>
-        {selectedCacheKey && (
-          <CacheItem
-            cacheItem={{
-              key: selectedCacheKey,
-              value: initialCacheData[selectedCacheKey],
-              expiry: initialCacheData[selectedCacheKey].expiry,
-            }}
-          />
-        )}
+        <h2 className="text-2xl">Selected Cache Item</h2>
+        {selectedCacheKey && <CacheItem cacheKey={selectedCacheKey} />}
 
         {!selectedCacheKey && <p>No cache item selected</p>}
 
@@ -77,13 +69,6 @@ const Cache = ({ cacheData: initialCacheData }) => {
           className="bg-blue-500 text-white px-4 py-2 rounded-md mt-4"
         >
           Clear
-        </button>
-
-        <button
-          onClick={() => setSelectedCacheKey(null)}
-          className="bg-blue-500 text-white px-4 py-2 rounded-md mt-4 ml-4"
-        >
-          Refresh
         </button>
       </div>
     </div>
