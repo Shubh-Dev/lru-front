@@ -34,6 +34,8 @@ To get a local copy up and running follow these simple example steps.
 
 ## Run tests
 
+- Run `npm jest` to run the tests
+
 ## Run the project
 
 - Run `npm install` to install the dependencies
