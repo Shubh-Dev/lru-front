@@ -5,7 +5,6 @@ const Cache = ({ cacheData: initialCacheData }) => {
   const [loading, setLoading] = useState(true);
   const [selectedCacheKey, setSelectedCacheKey] = useState(null);
   useEffect(() => {
-    // If initial cache data is provided, set it immediately
     if (initialCacheData) {
       setLoading(false);
     } else {
@@ -22,7 +21,6 @@ const Cache = ({ cacheData: initialCacheData }) => {
         })
         .catch((error) => {
           console.error("Error fetching cache data:", error);
-          // Set loading to false
           setLoading(false);
         });
     }
@@ -36,7 +34,7 @@ const Cache = ({ cacheData: initialCacheData }) => {
   return (
     <div>
       <div className="border border-gray-600 p-6">
-        <h2 className="text-2xl">Cache</h2>
+        <h2 className="text-2xl">Cache List</h2>
         {loading && <p className="text-xs">Loading cache data...</p>}
         {!loading && (
           <div>
